@@ -38,10 +38,15 @@ public interface InodeTable {
     String getName ();     // id of the file system
     void setName (String name);
 
-    // marker for InodeDirectoryWithQuota
+    // marker for InodeDirectory
     @Column(name = "isDir")
     boolean getIsDir ();
     void setIsDir (boolean isDir);
+
+    // marker for InodeDirectoryWithQuota
+    @Column(name = "isDirWithQuota")
+    boolean getIsDirWithQuota ();
+    void setIsDirWithQuota (boolean isDirWithQuota);
 
     // Inode
     @Column(name = "modificationTime")
@@ -55,12 +60,22 @@ public interface InodeTable {
 
     // Inode
     @Column(name = "permission")
-    long getPermission (); 
-    void setPermission (long permission);
+    byte[] getPermission (); 
+    void setPermission (byte[] permission);
+
+    // InodeDirectoryWithQuota
+    @Column(name = "nscount")
+    long getNSCount ();
+    void setNSCount (long nsCount);
+
+    // InodeDirectoryWithQuota
+    @Column(name = "dscount")
+    long getDSCount ();
+    void setDSCount (long dsCount);
 
     // InodeDirectoryWithQuota
     @Column(name = "nsquota")
-    long getNSQuota ();           // creation time of the file system state
+    long getNSQuota ();
     void setNSQuota (long nsQuota);
 
     // InodeDirectoryWithQuota
