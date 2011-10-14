@@ -118,5 +118,11 @@ public interface InodeTable {
     @Column(name = "parent")
     String getParent ();
     void setParent (String parent);
+    
+     // InodeFile
+    @Column(name = "localName")
+    long getLocalName ();
+    void setLocalName (String localName);
 
+   
 }
